@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Profile Explorer Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="ambient-glow"></div>
+
+    <!-- Navigation Header -->
+    <header class="top-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="badge">AKS</span>
+                <span class="brand-text">GitHub Explorer</span>
+            </div>
+            <div class="nav-actions">
+                <button id="favorites-toggle-btn" class="nav-btn" aria-label="Open favorite profiles" title="View Favorite Profiles">
+                    <span class="star-icon">★</span>
+                    <span class="nav-btn-text">Favorites</span>
+                    <span id="favorites-badge-count" class="pill-count">0</span>
+                </button>
+                <button id="theme-toggle-btn" class="nav-btn theme-btn" aria-label="Toggle dark/light theme" title="Toggle Theme">
+                    <span id="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="app-container">
+        <header class="app-header">
+            <h1>GitHub Profile Explorer</h1>
+            <p>Lookup any developer profile, live stats, repositories, and metadata instantly.</p>
+        </header>
+
+        <!-- Search Bar -->
+        <section class="search-section">
+            <div class="search-wrapper">
+                <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="search-input" placeholder="Search by username (e.g., torvalds)" autocomplete="off" spellcheck="false">
+                <button id="clear-input-btn" class="clear-input-btn hidden" aria-label="Clear search input" title="Clear">✕</button>
+                <button id="search-btn">Search</button>
+            </div>
+
+            <!-- Recent Searches History -->
+            <div id="recent-searches" class="recent-searches hidden">
+                <div class="recent-header">
+                    <span class="recent-title">Recent searches</span>
+                    <button id="clear-history-btn" class="clear-history-btn">Clear all</button>
+                </div>
+                <div id="recent-chips" class="recent-chips"></div>
+            </div>
+        </section>
+
+        <!-- Profile Display Container -->
+        <section id="profile-container" class="profile-display"></section>
+
+        <!-- Repositories Section -->
+        <section id="repos-container" class="repos-display hidden"></section>
+    </main>
+
+    <!-- Favorites Drawer / Slide-Over -->
+    <div id="favorites-drawer" class="drawer-overlay hidden" aria-hidden="true">
+        <div class="drawer-panel">
+            <div class="drawer-header">
+                <div class="drawer-title-group">
+                    <span class="star-icon">★</span>
+                    <h2>Favorite Profiles</h2>
+                </div>
+                <button id="close-drawer-btn" class="close-btn" aria-label="Close favorites drawer">✕</button>
+            </div>
+            <div id="favorites-list" class="favorites-list">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
